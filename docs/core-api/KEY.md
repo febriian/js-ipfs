@@ -11,14 +11,14 @@
 
 > Generate a new key
 
-##### `ipfs.key.gen(name, options)`
+##### `ipfs.key.gen(name, [options])`
 
 Where:
 
 - `name` is a local name for the key
-- `options` is an object that contains following properties
-  - 'type' - the key type, one of 'rsa', 'ed25519' (Note: `js-ipfs` will not support 'ed25519' until [libp2p/js-libp2p-crypto#145](https://github.com/libp2p/js-libp2p-crypto/issues/145) is resolved)
-  - 'size' - the key size in bits
+- `options` is an optional object that contains following properties
+  - 'type' - the key type, one of 'rsa', 'ed25519' (Note: `js-ipfs` will not support 'ed25519' until [libp2p/js-libp2p-crypto#145](https://github.com/libp2p/js-libp2p-crypto/issues/145) is resolved). Default: `rsa`
+  - 'size' - the key size in bits. Default: `2048`
 
 **Returns**
 
