@@ -293,7 +293,7 @@ const cid = 'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF'
 
 for await (const file of ipfs.get(cid)) {
   console.log(file.path)
-  
+
   if (!file.content) continue;
 
   const content = new BufferList()
@@ -735,7 +735,7 @@ const cid = await ipfs.files.flush('/')
 
 > List directories in the local mutable namespace.
 
-##### `ipfs.files.ls([path], [options])`
+##### `ipfs.files.ls([path])`
 
 Where:
 
@@ -743,8 +743,6 @@ Where:
   - An existing MFS path to a directory (e.g. `/my-dir`)
   - An IPFS path (e.g. `/ipfs/QmWGeRAEgtsHW3ec7U4qW2CyVy7eA2mFRVbk1nb24jFyks`)
   - A [CID][cid] instance (e.g. `new CID('QmWGeRAEgtsHW3ec7U4qW2CyVy7eA2mFRVbk1nb24jFyks')`)
-- `options` is an optional Object that might contain the following keys:
-  - `sort` is a Boolean value. If true entries will be sorted by filename (default: false)
 
 **Returns**
 

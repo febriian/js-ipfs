@@ -32,8 +32,7 @@ describe('/files/flush', () => {
 
     expect(ipfs.files.flush.callCount).to.equal(1)
     expect(ipfs.files.flush.getCall(0).args).to.deep.equal([
-      path,
-      {}
+      path
     ])
     expect(response).to.have.nested.property('result.Cid', cid.toString())
   })
@@ -46,8 +45,7 @@ describe('/files/flush', () => {
 
     expect(ipfs.files.flush.callCount).to.equal(1)
     expect(ipfs.files.flush.getCall(0).args).to.deep.equal([
-      '/',
-      {}
+      '/'
     ])
     expect(response).to.have.nested.property('result.Cid', cid.toString())
   })
@@ -60,8 +58,7 @@ describe('/files/flush', () => {
 
     expect(ipfs.files.flush.callCount).to.equal(1)
     expect(ipfs.files.flush.getCall(0).args).to.deep.equal([
-      '/',
-      {}
+      '/'
     ])
     expect(response).to.have.nested.property('result.Cid', cid.toV1().toString('base64'))
   })

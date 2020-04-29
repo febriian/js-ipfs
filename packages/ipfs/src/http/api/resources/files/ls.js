@@ -69,14 +69,6 @@ const mfsLs = {
         cidBase: Joi.string(),
         stream: Joi.boolean().default(false)
       })
-        .rename('l', 'long', {
-          override: true,
-          ignoreUndefined: true
-        })
-        .rename('s', 'stream', {
-          override: true,
-          ignoreUndefined: true
-        })
     }
   }
 }

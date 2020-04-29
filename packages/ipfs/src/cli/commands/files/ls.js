@@ -1,6 +1,5 @@
 'use strict'
 
-const all = require('it-all')
 const {
   asBoolean
 } = require('../../utils')
@@ -20,13 +19,6 @@ module.exports = {
       coerce: asBoolean,
       describe: 'Use long listing format.'
     },
-    sort: {
-      alias: 's',
-      type: 'boolean',
-      default: true,
-      coerce: asBoolean,
-      describe: 'Sort entries by name'
-    },
     'cid-base': {
       describe: 'CID base to use.'
     }
@@ -37,7 +29,6 @@ module.exports = {
       ctx: { ipfs, print },
       path,
       long,
-      sort,
       cidBase
     } = argv
 
@@ -47,18 +38,6 @@ module.exports = {
       } else {
         print(file.name)
       }
-    }
-
-    // https://github.com/ipfs/go-ipfs/issues/5181
-    if (sort) {
-      let files = await all(ipfs.files.ls(path || '/'))
-
-      files = files.sort((a, b) => {
-        return a.name.localeCompare(b.name)
-      })
-
-      files.forEach(printListing)
-      return
     }
 
     for await (const file of ipfs.files.ls(path || '/')) {
